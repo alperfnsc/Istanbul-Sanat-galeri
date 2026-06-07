@@ -34,7 +34,7 @@ const getCustomIcon = (isActive: boolean = false) => {
   });
 };
 
-type LoadedGallery = Gallery & { coords: Coordinates | null };
+type LoadedGallery = Gallery;
 
 // Sub-component to center/fly map to the active coords dynamically
 function RecenterMap({ activeCoords }: { activeCoords: Coordinates | null }) {
@@ -71,19 +71,21 @@ export default function MapPage() {
         setLoading(true);
         const data = await fetchGalleries();
         
-        // Initial setup with empty coords
-        setGalleries(data.map(g => ({ ...g, coords: null })));
+        // Use coordinates parsed directly from the spreadsheet (instant display!)
+        setGalleries(data);
         setLoading(false);
 
-        // Async geocoding for all coordinates (progressively populates)
+        // Fallback geocoding only for any entry that might lack coordinates
         data.forEach(async (gallery) => {
-          const coords = await geocodeAddress(gallery.address, gallery.district, gallery.name);
-          if (coords) {
-            setGalleries(prev => 
-              prev.map(item => 
-                item.name === gallery.name ? { ...item, coords } : item
-              )
-            );
+          if (!gallery.coords) {
+            const coords = await geocodeAddress(gallery.address, gallery.district, gallery.name);
+            if (coords) {
+              setGalleries(prev => 
+                prev.map(item => 
+                  item.name === gallery.name ? { ...item, coords } : item
+                )
+              );
+            }
           }
         });
       } catch (err) {
