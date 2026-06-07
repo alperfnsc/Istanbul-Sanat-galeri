@@ -9,7 +9,7 @@ export default function LandingPage() {
       <header className="px-6 py-5 border-b border-neutral-100 flex items-center justify-between z-10 w-full bg-white/80 backdrop-blur-md">
         <div className="flex items-center gap-2 text-xl font-medium tracking-tight">
           <Palette className="w-6 h-6 text-neutral-900" />
-          <span>Istanbul Art Galleries</span>
+          <span>ArtRoute Istanbul</span>
         </div>
         <nav>
           <Link
@@ -59,7 +59,7 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="py-6 text-center text-neutral-400 text-sm border-t border-neutral-100">
-        &copy; {new Date().getFullYear()} Istanbul Art Galleries. Tüm hakları saklıdır.
+        &copy; {new Date().getFullYear()} ArtRoute Istanbul. Tüm hakları saklıdır.
       </footer>
     </div>
   );

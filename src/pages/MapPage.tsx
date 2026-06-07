@@ -123,7 +123,7 @@ export default function MapPage() {
           <div className="flex items-center gap-2">
             <Palette className="w-5 h-5 text-neutral-900" />
             <h1 className="text-lg font-semibold text-neutral-900 tracking-tight hidden sm:block">
-              İstanbul Sanat Galerileri
+              ArtRoute Istanbul
             </h1>
           </div>
         </div>
