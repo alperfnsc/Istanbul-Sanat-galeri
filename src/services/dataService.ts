@@ -9,7 +9,7 @@ export interface Gallery {
   image: string;
 }
 
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1lhFmABYGZdFGIDJeAZUbcG7WzZ-kT3VhlAqVmpKS3-8/export?format=csv';
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1KQACBO1NjXE4E3ohqAfa-I21gx5h8nup4H0UaUqVT0A/export?format=csv';
 
 export async function fetchGalleries(): Promise<Gallery[]> {
   try {
